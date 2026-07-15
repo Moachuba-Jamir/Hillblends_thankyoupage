@@ -24,27 +24,44 @@ body {
   margin: 0;
   min-height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 13px 18px;
-  padding-top: max(13px, env(safe-area-inset-top));
-  padding-bottom: max(13px, env(safe-area-inset-bottom));
-  background: radial-gradient(120% 100% at 50% 0%, #FEFBF1 0%, var(--cream) 55%, #F2ECD6 100%);
+  padding: 0;
+  background: var(--panel);
   color: var(--ink);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
 }
 
+/* Phones: the card IS the screen — full-bleed, minimal side breathing room. */
 .card {
   position: relative;
   width: 100%;
-  max-width: 420px;
+  min-height: 100vh;
+  margin: 0 auto;
   background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 28px;
-  padding: 40px 32px 30px;
-  box-shadow: 0 24px 60px -20px var(--shadow), 0 2px 10px rgba(43, 33, 22, 0.06);
+  padding: max(28px, env(safe-area-inset-top)) 20px max(24px, env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
+}
+
+/* Wider screens: bring back a bounded, floating card look. */
+@media (min-width: 640px) {
+  body {
+    align-items: center;
+    justify-content: center;
+    padding: 32px 18px;
+    background: radial-gradient(120% 100% at 50% 0%, #FEFBF1 0%, var(--cream) 55%, #F2ECD6 100%);
+  }
+
+  .card {
+    max-width: 420px;
+    min-height: auto;
+    border: 1px solid var(--line);
+    border-radius: 28px;
+    padding: 46px 40px 36px;
+    box-shadow: 0 24px 60px -20px var(--shadow), 0 2px 10px rgba(43, 33, 22, 0.06);
+  }
 }
 
 /* ---------- Brand ---------- */
@@ -311,12 +328,5 @@ body.reduce-motion.is-ready [data-reveal] {
 /* ---------- Small screens ---------- */
 
 @media (max-width: 380px) {
-  .card { padding: 34px 22px 26px; }
   .contact-btn__value { font-size: 15px; }
-}
-
-/* ---------- Larger screens ---------- */
-
-@media (min-width: 480px) {
-  .card { padding: 46px 40px 36px; }
 }
