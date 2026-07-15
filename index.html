@@ -16,6 +16,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" href="./assets/fonts/BeauRivage-Regular.ttf" as="font" type="font/ttf" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&family=Playfair+Display:wght@500;600&family=Lora:wght@400;500;600&display=swap"
       rel="stylesheet"
@@ -23,8 +24,16 @@
 
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
-    <main class="card">
+  <body class="fonts-loading">
+    <div class="loading-screen" aria-live="polite" aria-busy="true">
+      <div class="loading-screen__panel">
+        <p class="loading-screen__eyebrow">Hillblends &amp; Co</p>
+        <div class="loading-screen__spinner" aria-hidden="true"></div>
+        <p class="loading-screen__message">Preparing your thank you note…</p>
+      </div>
+    </div>
+
+    <main class="card page-content">
       <header class="brand" data-reveal>
         <!-- Replace logo.svg with your own logo image later — keep the same filename,
          or update the src below to point at your new file. -->

@@ -17,6 +17,7 @@
 @font-face {
     font-family: "Beau Rivage";
     src: url("./assets/fonts/BeauRivage-Regular.ttf");
+    font-display: block;
 }
 
 * { box-sizing: border-box; }
@@ -34,6 +35,74 @@ body {
   color: var(--ink);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
+}
+
+.page-content {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+body.fonts-ready .page-content {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 250ms ease 100ms;
+}
+
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: var(--panel);
+  color: var(--ink);
+  text-align: center;
+}
+
+body.fonts-ready .loading-screen {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 250ms ease;
+}
+
+.loading-screen__panel {
+  max-width: 280px;
+}
+
+.loading-screen__eyebrow {
+  margin: 0 0 10px;
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--olive-dark);
+  opacity: 0.85;
+}
+
+.loading-screen__spinner {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 14px;
+  border: 3px solid rgba(91, 107, 62, 0.16);
+  border-top-color: var(--olive);
+  border-radius: 50%;
+  animation: loading-spin 1s linear infinite;
+}
+
+.loading-screen__message {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+@keyframes loading-spin {
+  to { transform: rotate(360deg); }
 }
 
 /* Phones: the card IS the screen — full-bleed, minimal side breathing room. */

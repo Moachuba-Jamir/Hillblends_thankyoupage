@@ -4,15 +4,47 @@ document.addEventListener('DOMContentLoaded', () => {
     document.documentElement.classList.add('reduce-motion');
   }
 
-  // Stagger the entrance of each revealed section.
   const revealEls = document.querySelectorAll('[data-reveal]');
   revealEls.forEach((el, i) => {
     el.style.setProperty('--reveal-delay', `${i * 90}ms`);
   });
 
-  requestAnimationFrame(() => {
-    document.body.classList.add('is-ready');
-  });
+  const initApp = () => {
+    document.body.classList.add('fonts-ready');
+    document.body.classList.remove('fonts-loading');
+
+    const loadingScreen = document.querySelector('.loading-screen');
+    if (loadingScreen) {
+      loadingScreen.setAttribute('aria-busy', 'false');
+    }
+
+    requestAnimationFrame(() => {
+      document.body.classList.add('is-ready');
+    });
+  };
+
+  if (document.fonts && document.fonts.load) {
+    const fonts = [
+      '1em "Beau Rivage"',
+      '1em "Playfair Display"',
+      '1em "Lora"'
+    ];
+
+    const fontPromises = fonts.map((font) => document.fonts.load(font));
+    const timeoutId = setTimeout(initApp, 6000);
+
+    Promise.all(fontPromises)
+      .then(() => {
+        clearTimeout(timeoutId);
+        initApp();
+      })
+      .catch(() => {
+        clearTimeout(timeoutId);
+        initApp();
+      });
+  } else {
+    initApp();
+  }
 
   // Tactile ripple feedback when a contact button is pressed.
   const buttons = document.querySelectorAll('.contact-btn');
