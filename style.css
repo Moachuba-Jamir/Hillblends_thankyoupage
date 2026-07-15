@@ -14,6 +14,11 @@
   --font-body: 'Lora', 'Georgia', serif;
 }
 
+@font-face {
+    font-family: "Beau Rivage";
+    src: url("./assets/fonts/BeauRivage-Regular.ttf");
+}
+
 * { box-sizing: border-box; }
 
 html, body {
@@ -84,7 +89,7 @@ body {
 /* ---------- Hero ---------- */
 
 .hero__title {
-  font-family: var(--font-script);
+  font-family: "Beau Rivage";
   font-weight: 400;
   font-size: clamp(48px, 14vw, 64px);
   line-height: 1;
