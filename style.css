@@ -69,15 +69,15 @@ body {
 .brand {
   display: flex;
   justify-content: center;
-  margin-bottom: 22px;
+  margin-bottom: 0;
 }
 
 .brand__logo {
-  width: 76px;
-  height: 76px;
-  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  /* border-radius: 50%; */
   object-fit: cover;
-  box-shadow: 0 6px 18px -8px var(--shadow);
+  /* box-shadow: 0 6px 18px -8px var(--shadow); */
 }
 
 /* ---------- Hero ---------- */
