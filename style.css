@@ -305,13 +305,13 @@ body.fonts-ready .loading-screen {
 }
 
 .contact-btn__value {
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 16px;
-  font-weight: 500;
   color: var(--ink);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  opacity: .8;
 }
 
 .contact-btn__go {
