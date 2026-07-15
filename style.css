@@ -26,9 +26,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 32px 18px;
-  padding-top: max(32px, env(safe-area-inset-top));
-  padding-bottom: max(32px, env(safe-area-inset-bottom));
+  padding: 13px 18px;
+  padding-top: max(13px, env(safe-area-inset-top));
+  padding-bottom: max(13px, env(safe-area-inset-bottom));
   background: radial-gradient(120% 100% at 50% 0%, #FEFBF1 0%, var(--cream) 55%, #F2ECD6 100%);
   color: var(--ink);
   font-family: var(--font-body);
